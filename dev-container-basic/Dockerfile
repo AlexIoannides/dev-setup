@@ -21,7 +21,8 @@ RUN useradd --create-home dev &&\
     usermod -aG docker dev
 USER dev
 WORKDIR /home/dev
-RUN mkdir .ssh
+RUN mkdir .ssh &&\
+    mkdir workspace
 
 # Install user specific tools:
 # - Oh My Zsh
@@ -36,4 +37,4 @@ RUN curl -LsSf https://astral.sh/uv/install.sh | sh &&\
 COPY .zshrc .zshrc
 
 # Make the Zsh shell the default command
-CMD ["zsh"]
+CMD ["tail", "-f", "/dev/null"]
