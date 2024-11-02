@@ -3,7 +3,7 @@
 This `Dockerfile` defines an Ubuntu Linux image into which all of my favourite developer tools have been installed:
 
 - Go
-- Python (via uv)
+- Python (via [uv](https://docs.astral.sh/uv/))
 - Docker
 
 And a few other useful tools - see the Dockerfile for more info.
