@@ -4,7 +4,6 @@ This `Dockerfile` defines an Ubuntu Linux image into which all of my favourite d
 
 - Go
 - Python (via [uv](https://docs.astral.sh/uv/))
-- Docker
 
 And a few other useful tools - see the Dockerfile for more info.
 
