@@ -14,9 +14,7 @@ RUN curl -sO https://dl.google.com/go/go1.23.2.linux-arm64.tar.gz &&\
     rm go1.23.2.linux-arm64.tar.gz
 
 # Install uv and Python
-RUN curl -LsSf https://astral.sh/uv/install.sh | env UV_INSTALL_DIR="/usr/local/bin" sh &&\
-    uv python install 3.12 3.13 &&\
-    uv python pin 3.12
+RUN curl -LsSf https://astral.sh/uv/install.sh | env UV_INSTALL_DIR="/usr/local/bin" sh
 
 # Create a new:
 # --> give them password-less sudo privilages
@@ -33,7 +31,10 @@ WORKDIR /home/dev
 
 # Install user specific tools:
 # - Oh My Zsh
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+# - uv managed Python versions 3.12 and 3.13
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended &&\
+    uv python install 3.12 3.13 &&\
+    uv python pin 3.12
 
 # Copy Zsh shell config
 COPY .zshrc .zshrc
