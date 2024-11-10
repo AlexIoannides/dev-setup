@@ -1,6 +1,6 @@
 # Docker Compose Configs
 
-We may need ancillary containerised services up-and-running for development (e.g., databases), or it might be easier to configure a single container (e.g., with volume mounts, environment variables, etc.), in a single file. We can use docker compose for this task.
+We may need ancillary containerised services up-and-running for development (e.g., databases), or it might be easier to configure a single container (e.g., with volume mounts, environment variables, etc.), in a single file. We can use [Docker Compose](https://docs.docker.com/compose/) for this task - a tool for defining and running multi-container applications.
 
 ## Docker Compose Basics
 
@@ -8,10 +8,10 @@ Basic commands for use with any system configuration.
 
 ### Starting
 
-To run the container as a detached background process that a tool like VS Code can connect to remotely:
+To run all containers as a detached background processes that a tool like VS Code can connect to remotely:
 
 ```text
-docker compose -f compose-basic.yml up --detach
+docker compose -f dev.yaml up --detach
 ```
 
 ### Connecting to a Shell in a Running Container
@@ -25,7 +25,7 @@ docker exec -it NAME_OF_CONTAINER zsh
 This will preserve the state of all containers (if they have been modified it in any way).
 
 ```text
-docker compose -f compose-basic.yml stop
+docker compose -f dev.yaml stop
 ```
 
 ### Deleting
@@ -33,22 +33,22 @@ docker compose -f compose-basic.yml stop
 To delete all stopped containers in the system,
 
 ```text
-docker compose -f compose-basic.yml down -v
+docker compose -f dev.yaml down -v
 ```
 
 Where the `-v` flag will delete any volumes created.
 
 ## Available Configs
 
-A brief summary of the configs available in this directory.
+A brief summary of the system configs defined in this directory (in YAML files).
 
 ### Dev-Workstation
 
-`compose-basic.yml` ➜ Lightweight Ubuntu developer container with `.ssh` and `workspace` mounted volumes and a `dev` user with super-user privileges.
+`dev.yaml` ➜ Lightweight Ubuntu developer container with `.ssh` and `workspace` mounted volumes and a `dev` user with super-user privileges.
 
 ### Dev-Workstation + Postgres
 
-`compose-postgres.yml` ➜ Developer container networked to a Postgres instance backed by Docker volume storage.
+`dev-postgres.yaml` ➜ Developer container networked to a Postgres instance backed by Docker volume storage.
 
 #### Postgres 101
 
