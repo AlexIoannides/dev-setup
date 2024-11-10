@@ -52,7 +52,7 @@ A brief summary of the system configs defined in this directory (in YAML files).
 
 #### Postgres 101
 
-Login to the database on the Postgres container:
+After opening a shell on the Postgres container login to the database:
 
 ```text
 psql -U admin -d postgres
