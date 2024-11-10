@@ -33,8 +33,7 @@ WORKDIR /home/dev
 # - Oh My Zsh
 # - uv managed Python versions 3.12 and 3.13
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended &&\
-    uv python install 3.12 3.13 &&\
-    uv python pin 3.12
+    uv python install 3.12 3.13
 
 # Copy Zsh shell config
 COPY .zshrc .zshrc
