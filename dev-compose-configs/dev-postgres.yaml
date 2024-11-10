@@ -1,0 +1,40 @@
+# Ubuntu developer container + Postgres
+# --> login on Postgres instance: psql -U admin -d postgres
+# --> example remote connection string: postgres://<DB_USER>:<DB_PASSWORD>@<DB_HOST>:<DB_PORT>/<DB_NAME>
+services:
+
+  dev-workstation:
+    image: ubuntu-dev:latest
+    container_name: dev-workstation
+    command: ["tail", "-f", "/dev/null"]
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: admin
+      DB_PASSWORD: admin123
+      DB_NAME: postgres
+    volumes:
+      - $HOME/.ssh:/home/dev/.ssh
+      - $HOME/workspace:/home/dev/workspace
+    depends_on:
+      - postgres
+    networks:
+      - the_network
+
+  postgres:
+    image: postgres:17
+    container_name: postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - the_network
+
+networks:
+  the_network:
+
+volumes:
+  pgdata:

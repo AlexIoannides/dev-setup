@@ -77,6 +77,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+RPROMPT="" # Fix formatting error with non-zero exit codes
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

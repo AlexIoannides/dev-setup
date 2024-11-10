@@ -1,5 +1,5 @@
-# Basic dev container that moiunts two local directories for SSH and Git repos
-# To configure envionrment variables and ports, you can use,
+# Basic dev container that mounts two local directories for SSH and Git repos
+# To configure environment variables and ports, you can use,
 #
 # services:
 #   dev_basic:
