@@ -1,0 +1,14 @@
+line-length = 88
+lint.select = [
+  "D",   # pydocstyle
+  "E",   # pycodestyle errors
+  "F",   # pyflakes
+  "I",   # isort
+  "UP",  # pyupgrade
+  "W",   # pycodestyle warnings
+]
+lint.ignore = [
+  "D105",    # fix pydocstyle warning    
+  "D203",    # fix pydocstyle warning
+  "D213",    # fix pydocstyle warning
+]
